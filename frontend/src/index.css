@@ -1,0 +1,424 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #1B1212;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+.pages{
+  max-width: 1630px;
+  padding: 10px;
+  margin: 70px auto;
+}
+
+/* homepage */
+.home-title{
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  color: #1B1212;
+  margin-bottom: 50px;
+  margin-left: 5px;
+}
+
+/* new lead form */
+
+.AddForm{
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.EditForm{
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.create{
+  max-width: 680px;
+  width: 100%;
+  background: #fff;
+  padding: 25px 45px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  flex-direction: row
+}
+
+.create .title{
+  font-size: 25px;
+  font-weight: 600;
+  position: relative;
+  color: #D22B2B;
+  margin-top: 25px;
+}
+
+.create .title::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: #D22B2B;
+}
+
+.create .lead-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+.lead-details .input-box .details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.lead-details .input-box{
+  margin: 20px 0 10px 0;
+  width: calc(100% / 2 - 20px);
+}
+
+.lead-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+}
+
+.lead-details .input-box input:focus,
+.lead-details .input-box input:valid{
+  border-color: #ccc;
+}
+
+.lead-details .input-box select{
+  height: 45px;
+  width: 106%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.lead-details .input-box input:select,
+.lead-details .input-box input:select{
+  border-color: #ccc;
+}
+
+.input-box .submit {
+  background: #D22B2B;
+  border: 1px solid #ccc;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 5px;
+  cursor: pointer;
+  height: 45px;
+  width: 60%;
+  outline: none;
+  font-size: 16px;
+  margin: 30px 70px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error{
+  border: 1px solid var(--error);
+}
+
+.back .fa-solid fa-arrow-left{
+  color: #D22B2B;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin: 0px;
+}
+
+/* lead table */
+
+.add-button{
+  text-decoration: none;
+  background-color: #D22B2B;
+  color: #f1f1f1;
+  font-weight: 500;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.lead-table table thead tr th,
+.lead-body table tbody tr td{
+  min-width: 150px;
+  padding: 7px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+  font-size: 15px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+}
+
+.lead-body table tbody tr td{
+  background: #E5E4E2;
+  position: relative;
+}
+
+.lead-table table thead tr{
+  background-color: #1B1212;
+  color: #f1f1f1;
+  border-collapse: collapse;
+}
+
+.lead-table{
+  margin-top: 50px;
+}
+
+.actionButtons button{
+  border: 0;
+  outline: none;
+  background: #C41E3A;
+  padding: 8px 10px;
+  color: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actionButtons .fa-pen-to-square{
+  background: #50C878;
+  padding: 8px 10px;
+  color: #f1f1f1;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.actionButtons .fa-eye{
+  background: #0047AB;
+  padding: 8px 10px;
+  color: #f1f1f1;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 10px;
+}
+nav button {
+  background: none;
+  color: #D22B2B;
+  border: 2px solid #D22B2B;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+/* auth forms */
+
+form.signupLG, form.loginLG {
+  max-width: 460px;
+  width: 100%;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  flex-direction: column;
+}
+
+.signin-signup {
+  display: flex;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+form.loginLG, form.signupLG {
+  grid-column: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Style form titles, input fields, icons, and buttons */
+.user-title {
+  font-size: 35px;
+  color: #1B1212;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 290px;
+  height: 50px;
+  border: 1px solid #333;
+  border-radius: 25px;
+  margin: 10px 0;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.input-field i, select i {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+}
+
+.input-field input {
+  flex: 5;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  color: #1B1212;
+  font-weight: 600;
+}
+
+.input-field select {
+  flex: 5;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 17px;
+  color: #1B1212;
+  font-weight: 600;
+  margin: 10px 0;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  font-size: 14px;
+  color: #999;
+  margin-right: 10px;
+}
+
+a {
+  font-size: 14px;
+  color: #D22B2B;
+}
+
+.forgot-password {
+  text-align: center;
+  color: #0047AB;
+}
+
+.btn {
+  width: 130px;
+  height: 40px;
+  background: #D22B2B;
+  outline: none;
+  border: 2px solid #D22B2B;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #f1f1f1;
+  border-radius: 25px;
+}
+
+.btn:hover {
+  color: #333;
+  border: none;
+  background: #999;
+}
+.account-text {
+  color: #D22B2B;
+  margin-left: 5px;
+  align-items: center;
+}
+
+/* view form */
+
+.view {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 25px 45px;
+  border-radius: 30px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  flex-direction: row
+}
+.view h4 {
+  font-size: 25px;
+  font-weight: 600;
+  position: relative;
+  color: #D22B2B;
+  margin-top: 25px;
+}
+.view h4::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: #D22B2B;
+}
+.view p {
+  margin: 20px;
+  font-size: 19px;
+  font-weight: 60px;
+  color: #555;
+}
+.ViewForm{
+  display: flex;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
