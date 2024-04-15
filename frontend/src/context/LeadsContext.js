@@ -29,7 +29,7 @@ export const leadsReducer = (state, action) => {
 
 export const LeadsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(leadsReducer, { 
-    leads: null
+    leads: []
   })
   
   return (
