@@ -6,6 +6,7 @@ const Schema = mongoose.Schema
 
 // define enum for the roles
 const roleEnum = ["Lead Generation", "Telemarketer", "Team Leader"]
+const genderEnum = ["Male", "Female"]
 
 const userLGSchema = new Schema({
   name: {
@@ -26,11 +27,24 @@ const userLGSchema = new Schema({
     required: true,
     enum: roleEnum // Define the enum here
   },
+  birthday: {
+    type: Date // Date type for storing birthdays
+  },
+  number: {
+    type: String
+  },
+  homeaddress: {
+    type: String
+  },
+  gender: {
+    type: String,
+    enum: genderEnum // Define the enum here
+  },
   isActive: {
     type: Boolean,
     default: false  // Initially set to false (not active)
   }
-})
+}, { timestamps: true })
 
 // static signup method
 userLGSchema.statics.signup = async function(name, email, password, role) {
