@@ -10,6 +10,13 @@ const getLeads = async (req, res) => {
     res.status(200).json(leads)
 }
 
+// get all leads for TL
+const getTLLeads = async (req, res) => {
+
+    const leads = await Lead.find({ }).sort({createdAt: -1})
+
+    res.status(200).json(leads)
+}
 
 // get a single lead
 const getSingleLead = async (req, res) => {
@@ -106,11 +113,11 @@ const updateLead = async (req, res) => {
     res.status(200).json(lead)
 }
 
-
 module.exports = {
     getLeads,
     getSingleLead,
     createLead,
     deleteLead,
-    updateLead
+    updateLead,
+    getTLLeads
 }
