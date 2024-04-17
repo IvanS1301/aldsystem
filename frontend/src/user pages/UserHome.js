@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useUsersContext } from "../hooks/useUsersContext"
 
 // components
-import ViewUserInfo from "../user components/ViewUserInfo"
+import AllUserInfo from "../user components/AllUserInfo"
 
 const UserHome = () => {
   const { userlgs, dispatch } = useUsersContext()
@@ -25,7 +25,7 @@ const UserHome = () => {
       <div className="home-title">Welcome!</div>
         <div className="leads">
           {userlgs && userlgs.map((userlg) =>(
-            <ViewUserInfo key={userlg._id} userlg={userlg} />
+            <AllUserInfo key={userlg._id} userlg={userlg} />
           ))}
         </div>
       </div>
