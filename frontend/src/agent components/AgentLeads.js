@@ -34,6 +34,10 @@ const AgentLeads = ({ lead }) => {
     }
   }
 
+  // Logging to check the values of createdAt and updatedAt
+  console.log('createdAt:', lead.createdAt);
+  console.log('updatedAt:', lead.updatedAt);
+
     return (
         <div className="lead-body">
         <table border={0} cellSpacing={0}>
