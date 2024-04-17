@@ -20,7 +20,7 @@ const Navbar = () => {
         <nav>
           {userLG && (
             <div>
-              <Link to="/userhome">Profile</Link>
+              <Link to={`/viewuser/${userLG._id}`}>Profile</Link>
               <span>{userLG.isActive ? 'Inactive' : 'Active'}</span>
               <button onClick={handleClick}><i className="fa-solid fa-right-from-bracket"></i>Log Out</button>
             </div>
