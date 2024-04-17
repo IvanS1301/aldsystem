@@ -12,8 +12,9 @@ import ReadForm from './leadgen pages/ReadForm'
 import AGReadForm from './agent pages/AGReadForm'
 import LoginLG from './leadgen pages/LoginLG'
 import SignupLG from './leadgen pages/SignupLG'
-import EditUserForm from './user pages/EditUserForm'
+import EditUserInfo from './user pages/EditUserInfo'
 import UserHome from './user pages/UserHome'
+import ReadUserInfo from './user pages/ReadUserInfo'
 
 function App() {
   const { userLG } = useAuthContext()
@@ -35,8 +36,9 @@ function App() {
             <Route path="/agentedit/:id" element={<AGEditForm />} />
             <Route path="/view/:id" element={<ReadForm />} />
             <Route path="/agentview/:id" element={<AGReadForm />} />
-            <Route path="/useredit/:id" element={<EditUserForm />} />
+            <Route path="/useredit/:id" element={<EditUserInfo />} />
             <Route path="/userhome" element={<UserHome />} />
+            <Route path="/viewuser/:id" element={<ReadUserInfo />} />
 
             {/* Login Route */}
             <Route path="/loginLG" element={!userLG ? <LoginLG /> : <Navigate to="/" />} />
