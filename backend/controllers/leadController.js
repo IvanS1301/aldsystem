@@ -18,6 +18,15 @@ const getTLLeads = async (req, res) => {
     res.status(200).json(leads)
 }
 
+// Fetch unassigned leads
+const getUnassignedLeads = async (req, res) => {
+
+    const unassignedLeads = await Lead.find({ assignedTo: { $exists: false } }).exec();
+        
+    // Send the list of unassigned leads as the response
+    res.status(200).json(unassignedLeads)
+}
+
 // get a single lead
 const getSingleLead = async (req, res) => {
     const { id } = req.params
@@ -69,7 +78,7 @@ const createLead = async (req, res) => {
     // add doc to db
     try {
       const userLG_id = req.userLG._id
-      const lead = await Lead.create({name, type, phonenumber, streetaddress, city, postcode, emailaddress, callDisposition, remarks, userLG_id})
+      const lead = await Lead.create({name, type, phonenumber, streetaddress, city, postcode, emailaddress, callDisposition, remarks, userLG_id, assignedTo})
       res.status(200).json(lead)
     } catch (error) {
       res.status(400).json({error: error.message}) 
@@ -119,5 +128,6 @@ module.exports = {
     createLead,
     deleteLead,
     updateLead,
-    getTLLeads
+    getTLLeads,
+    getUnassignedLeads
 }
