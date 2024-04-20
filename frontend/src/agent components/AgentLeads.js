@@ -8,8 +8,8 @@ import formatRelative from 'date-fns/formatRelative'
 
 // Function to shorten ObjectId
 const objectIdToShortId = (objectId) => {
-  const hexString = objectId.toString();
-  return hexString.substring(22, 26);
+  const hexString = objectId.toString()
+  return hexString.substring(22, 26)
 }
 
 const AgentLeads = ({ lead }) => {
@@ -30,13 +30,15 @@ const AgentLeads = ({ lead }) => {
     const json = await response.json()
 
     if (response.ok) {
-      dispatch({type: "DELETE_LEAD", payload: json})
+      dispatch({type: "DELETE_STATUS", payload: json})
     }
   }
 
-  // Logging to check the values of createdAt and updatedAt
-  console.log('createdAt:', lead.createdAt);
-  console.log('updatedAt:', lead.updatedAt);
+   // Format createdAt
+   const formattedCreatedAt = formatRelative(new Date(lead.createdAt), 3, new Date())
+
+   // Format updatedAt if it exists, otherwise set it to 'Not updated'
+   const formattedUpdatedAt = lead.updatedAt ? formatDistanceToNow(new Date(lead.updatedAt), 3, new Date(), { addSuffix: true }) : 'Not updated'
 
     return (
         <div className="lead-body">
@@ -48,8 +50,8 @@ const AgentLeads = ({ lead }) => {
           <td className="Type">{lead.type}</td>
           <td className="Phone">{lead.phonenumber}</td>
           <td className="Email">{lead.emailaddress}</td>
-          <td className="Date">{formatRelative(new Date(lead.createdAt), 3, new Date())}</td>
-          <td className="Date">{formatDistanceToNow(new Date(lead.updatedAt), 3, new Date(), { addSuffix: true })}</td>
+          <td className="Date">{formattedCreatedAt}</td>
+            <td className="Date">{formattedUpdatedAt}</td>
           <td className="Date">{lead.callDisposition}</td>
           <td className="Date">{lead.remarks}</td>
           <td className="actionButtons">
