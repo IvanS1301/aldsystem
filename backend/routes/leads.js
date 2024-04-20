@@ -5,7 +5,8 @@ const {
     getSingleLead,
     deleteLead,
     updateLead,
-    getTLLeads
+    getTLLeads,
+    getUnassignedLeads
 } = require('../controllers/leadController')
 const requireAuth = require('../middleware/requireAuth')
 
@@ -17,8 +18,11 @@ router.use(requireAuth)
 // GET all leads
 router.get('/', getLeads)
 
-// GET all leads
+// GET all TL leads
 router.get('/tl', getTLLeads)
+
+// GET unassigned leads
+router.get('/unassigned', getUnassignedLeads)
 
 // GET a single lead
 router.get('/:id', getSingleLead)
