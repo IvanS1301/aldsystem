@@ -5,10 +5,10 @@ import { useLeadsContext } from "../hooks/useLeadsContext"
 
 const AGViewForm = () => {
   const { id } = useParams()
-  const { leads } = useLeadsContext()
+  const { unassignedLeads } = useLeadsContext()
 
   // Find the lead with the specified ID
-  const lead = leads.find(lead => lead._id === id)
+  const lead = unassignedLeads.find(lead => lead._id === id)
 
   if (!lead) {
     return <div>Loading...</div>
