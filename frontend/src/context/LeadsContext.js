@@ -22,6 +22,20 @@ export const leadsReducer = (state, action) => {
           lead._id === action.payload._id ? action.payload : lead
         )
       }
+    case 'SET_UNASSIGNED_LEADS':
+      return {
+        unassignedLeads: action.payload
+      }
+    case 'UPDATE_STATUS':
+      return {
+        unassignedLeads: state.unassignedLeads.map((lead) =>
+          lead._id === action.payload._id ? action.payload : lead
+        )
+      }
+    case 'DELETE_STATUS':
+      return {
+        unassignedLeads: state.unassignedLeads.filter((l) => l._id !== action.payload._id)
+      }
     default:
       return state
   }
@@ -29,7 +43,8 @@ export const leadsReducer = (state, action) => {
 
 export const LeadsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(leadsReducer, { 
-    leads: []
+    leads: [],
+    unassignedLeads: []
   })
   
   return (
