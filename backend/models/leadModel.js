@@ -44,6 +44,10 @@ const leadSchema = new Schema({
     },
     remarks: {
         type: String
+    },
+    assignedTo: {
+        type: Schema.Types.ObjectId, // Reference to Telemarketer user
+        ref: 'UserLG' // Reference to the UserLG model
     }
 }, { timestamps: true })
 
