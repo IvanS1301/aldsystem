@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 const AGUpdateForm = () => {
   const { id } = useParams()
-  const { leads, dispatch } = useLeadsContext()
+  const { unassignedLeads, dispatch } = useLeadsContext()
   const { userLG } = useAuthContext()
 
   const [leadData, setLeadData] = useState({
@@ -24,7 +24,7 @@ const AGUpdateForm = () => {
 
   useEffect(() => {
     // Fetch the lead details based on the ID
-    const lead = leads.find(lead => lead._id === id)
+    const lead = unassignedLeads.find(lead => lead._id === id)
     if (lead) {
       setLeadData({
         name: lead.name,
@@ -38,7 +38,7 @@ const AGUpdateForm = () => {
         remarks: lead.remarks
       })
     }
-  }, [id, leads])
+  }, [id, unassignedLeads])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -68,7 +68,7 @@ const AGUpdateForm = () => {
     if (response.ok) {
       setError(null)
       // Update the lead in the local state
-      dispatch({ type: 'UPDATE_LEAD', payload: json })
+      dispatch({ type: 'UPDATE_STATUS', payload: json })
     }
   }
 
