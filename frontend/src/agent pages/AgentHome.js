@@ -8,7 +8,7 @@ import AGLeadDetails from "../agent components/AGLeadDetails"
 import AgentLeads from "../agent components/AgentLeads"
 
 const AgentHome = () => {
-  const { leads, dispatch } = useLeadsContext()
+  const { unassignedLeads, dispatch } = useLeadsContext()
   const { userLG } = useAuthContext()
   const [searchQuery, setSearchQuery] = useState("")
   const [filterOption, setFilterOption] = useState("all")
@@ -17,13 +17,13 @@ const AgentHome = () => {
 
   useEffect(() => {
     const fetchLeads = async () => {
-      const response = await fetch('/api/leads', {
+      const response = await fetch('/api/leads/unassigned', {
         headers: {'Authorization': `Bearer ${userLG.token}`},
       })
       const json = await response.json()
 
       if (response.ok) {
-        dispatch({type: 'SET_LEADS', payload: json})
+        dispatch({type: 'SET_UNASSIGNED_LEADS', payload: json})
       }
     }
 
@@ -31,7 +31,7 @@ const AgentHome = () => {
   }, [dispatch, userLG])
 
   // Filter and sort the leads based on search query, filter option, and sort criteria
-  const filteredAndSortedLeads = leads ? leads.filter((lead) => {
+  const filteredAndSortedLeads = unassignedLeads ? unassignedLeads.filter((lead) => {
     // Apply search query filter
     if (searchQuery && !lead.name.toLowerCase().includes(searchQuery.toLowerCase())) {
       return false
