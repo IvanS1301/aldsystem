@@ -1,7 +1,7 @@
 import React from 'react'
 import UpdateUserForm from '../user components/UpdateUserForm'
 
-const EditUserForm = () => {
+const EditUserInfo = () => {
     return (
         <div className="EditForm">
             <UpdateUserForm />
@@ -9,4 +9,4 @@ const EditUserForm = () => {
     );
 }
 
-export default EditUserForm
+export default EditUserInfo
