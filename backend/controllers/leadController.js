@@ -20,11 +20,23 @@ const getTLLeads = async (req, res) => {
 
 // Fetch unassigned leads
 const getUnassignedLeads = async (req, res) => {
+    const userLG_id = req.userLG._id;
 
-    const unassignedLeads = await Lead.find({ assignedTo: { $exists: false } }).exec();
+    // Check if there are any unassigned leads assigned to the current Telemarketer
+    let unassignedLeads = await Lead.find({ assignedTo: userLG_id }).exec();
+
+    // If there are no assigned leads, fetch new unassigned leads and assign them to the Telemarketer
+    if (unassignedLeads.length === 0) {
+        unassignedLeads = await Lead.find({ assignedTo: { $exists: false } }).limit(10).exec();
         
-    // Send the list of unassigned leads as the response
-    res.status(200).json(unassignedLeads)
+        // Assign fetched leads to the current Telemarketer
+        unassignedLeads.forEach(async (lead) => {
+            await Lead.findOneAndUpdate({ _id: lead._id }, { assignedTo: userLG_id });
+        });
+    }
+
+    // Send the list of unassigned leads assigned to the Telemarketer as the response
+    res.status(200).json(unassignedLeads);
 }
 
 // get a single lead
